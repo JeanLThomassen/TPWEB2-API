@@ -2,6 +2,8 @@
 
 Trabajo con API REST acerca de la serie animada Bajoterra.
 
+![Logo Bajoterra](/logo.webp)
+
 # Integrantes
 - Jean Thomassen.
 - Lautaro Zijlstra.
