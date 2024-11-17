@@ -7,7 +7,7 @@ class CapModel{
        $this->db = new PDO('mysql:host=localhost;dbname=bdd-bajoterra;charset=utf8', 'root', '');
     }
 
-    public function getCaps($orderBy = false, $temporada){
+    public function getCaps($orderBy = false, $direc = ' ASC',$temporada){
         $sql = "SELECT * FROM capitulos";
 
         // Compruebo que la temporada sea un número entero y concateno
@@ -26,6 +26,11 @@ class CapModel{
                 case 'titulo':
                     $sql .= ' ORDER By titulo';
                     break;
+            }
+            if ($direc === 'DESC') {
+                $sql.= ' DESC';
+            }else{
+                $sql.= ' ASC';
             }
         }
 

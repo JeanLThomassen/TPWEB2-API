@@ -15,15 +15,19 @@ class CapApiController {
 
     public function getAll($req, $res){
         $orderBy = false;
+        $direc = null;
         if(isset($req->query->orderBy)){
             $orderBy = $req->query->orderBy;
+            if (isset($req->query->direc)) {
+                $direc = $req->query->direc;
+            }
         }
 
         $temporada = false;
         if(isset($req->query->temporada)){
             $temporada = $req->query->temporada;
         }
-        $caps = $this->model->getCaps($orderBy, $temporada);
+        $caps = $this->model->getCaps($orderBy, $direc, $temporada);
         return $this->view->response($caps);
     }
 
